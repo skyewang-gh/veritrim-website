@@ -147,8 +147,13 @@
     sel.appendChild(ph);
     values.forEach(function (v) {
       var o = document.createElement('option');
-      o.value = typeof v === 'string' ? v : v.value;
-      o.textContent = typeof v === 'string' ? v : v.label;
+      if (typeof v === 'object' && v !== null) {
+        o.value = String(v.value);
+        o.textContent = String(v.label);
+      } else {
+        o.value = String(v);
+        o.textContent = String(v);
+      }
       sel.appendChild(o);
     });
   }
