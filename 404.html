@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<title>Page not found | VeriTrim</title>
+<style>
+  :root{
+    --primary:#0b2b5b; --background:#f9fafb; --foreground:#0b2b5b;
+    --border:#e0e5eb; --muted:#65758b;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    background:var(--background); color:var(--foreground);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    padding:32px 20px;
+  }
+  .wrap{width:100%; max-width:640px; text-align:center}
+  .brand{font-weight:700; letter-spacing:-0.02em; font-size:18px; color:var(--primary)}
+  .code{font-size:64px; font-weight:800; letter-spacing:-0.03em; margin:24px 0 8px; line-height:1}
+  h1{font-size:22px; margin:0 0 10px; font-weight:700}
+  p{color:var(--muted); font-size:15px; line-height:1.6; margin:0 0 28px}
+  .links{display:grid; gap:10px; grid-template-columns:1fr; text-align:left}
+  @media(min-width:560px){.links{grid-template-columns:1fr 1fr}}
+  a.card{
+    display:block; padding:14px 16px; border:1px solid var(--border); border-radius:12px;
+    background:#fff; color:var(--primary); text-decoration:none; font-size:15px; font-weight:600;
+  }
+  a.card span{display:block; color:var(--muted); font-weight:400; font-size:13px; margin-top:3px}
+  a.card:hover{border-color:var(--primary)}
+  .home{
+    display:inline-block; margin-top:24px; padding:12px 22px; border-radius:999px;
+    background:var(--primary); color:#fff; text-decoration:none; font-size:15px; font-weight:600;
+  }
+  .foot{margin-top:28px; font-size:12px; color:var(--muted)}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="brand">VeriTrim</div>
+    <div class="code">404</div>
+    <h1>This page doesn't exist</h1>
+    <p>The link may be old, or the page may have moved. Everything below is live.</p>
+
+    <div class="links">
+      <a class="card" href="/fitment/">Find your filter<span>Check fitment by model and year</span></a>
+      <a class="card" href="/support/">Customer support<span>Manuals and contact</span></a>
+      <a class="card" href="/products/bmw-x3-g01-cabin-air-filter/">BMW X3 G01<span>Cabin air filter</span></a>
+      <a class="card" href="/products/mercedes-benz-glc-x253-cabin-air-filter/">Mercedes-Benz GLC X253<span>Cabin air filter</span></a>
+      <a class="card" href="/products/toyota-cabin-air-filter/">Toyota<span>Cabin air filter</span></a>
+      <a class="card" href="/guides/install-cabin-air-filter/">Installation guide<span>Step-by-step, no special tools</span></a>
+    </div>
+
+    <a class="home" href="/">Back to home</a>
+    <div class="foot">VeriTrim — cabin air filters</div>
+  </div>
+</body>
+</html>
