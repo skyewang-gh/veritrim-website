@@ -30,7 +30,7 @@
     <div class="max-w-2xl text-primary-foreground">
       <p class="mb-4 inline-block rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em]">Fitment checker</p>
       <h1 class="text-3xl font-bold tracking-tight md:text-5xl">Find your cabin air filter</h1>
-      <p class="mt-4 leading-relaxed text-primary-foreground/85">Pick your year, make and model. We will show you the filter that fits - and, just as importantly, when we do not have an answer yet.</p>
+      <p class="mt-4 leading-relaxed text-primary-foreground/85">Pick your year, make and model. We will show you the filter that fits, the install video for that housing where we have filmed one - and, just as importantly, when we do not have an answer yet.</p>
     </div>
   </div>
 </section>
@@ -66,7 +66,10 @@
   var PRODUCTS = {
     x3: {name: 'BMW X3 G01 Cabin Air Filter - Activated Carbon', years: '2018-2024',
          href: '../products/bmw-x3-g01-cabin-air-filter/index.html', price: '$29.99 CAD',
-         amazon: 'https://www.amazon.ca/s?k=64-11-5-BA6-609', alt: 'Activated carbon'},
+         amazon: 'https://www.amazon.ca/s?k=64-11-5-BA6-609', alt: 'Activated carbon',
+         video: '../assets/video/bmw-x3-g01-install-75s.mp4',
+         videoPoster: '../assets/video/bmw-x3-g01-video-cover.jpg',
+         videoNote: '75 seconds, shot on a G01: where the housing sits under the glove box and how the filter goes in.'},
     glc: {name: 'Mercedes-Benz GLC X253 Cabin Air Filter', years: '2016-2023',
           href: '../products/mercedes-benz-glc-x253-cabin-air-filter/index.html', price: '$29.99 CAD',
           amazon: 'https://www.amazon.ca/s?k=A+205+835+01+47', alt: 'Cabin side'},
@@ -187,6 +190,27 @@
     return hit;
   }
 
+  function videoBlock(p) {
+    var head = '<div class="mt-6 rounded-xl border border-border bg-background p-4">'
+      + '<h4 class="text-sm font-semibold">Install video</h4>';
+    if (p.video) {
+      return head
+        + '<p class="mt-1 text-sm leading-relaxed text-muted-foreground">' + esc(p.videoNote) + '</p>'
+        + '<video class="mt-3 w-full rounded-lg" controls preload="none" poster="' + p.videoPoster + '" width="1280" height="720">'
+        + '<source src="' + p.video + '" type="video/mp4">'
+        + 'Your browser does not support the video tag. <a href="' + p.video + '">Download the install video</a>.'
+        + '</video>'
+        + '</div>';
+    }
+    return head
+      + '<p class="mt-1 text-sm leading-relaxed text-muted-foreground">'
+      + 'We have not filmed this housing yet, so we are not going to show you somebody else&rsquo;s car. '
+      + 'The written guide covers the glove-box method and tells you exactly what we have and have not published.</p>'
+      + '<div class="mt-3 flex flex-wrap gap-3">'
+      + '<a class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border border-border bg-background px-8 text-sm font-medium text-foreground" href="../guides/install-cabin-air-filter/index.html">Read the install guide</a>'
+      + '</div></div>';
+  }
+
   function render() {
     var m = el.make.value, mo = el.model.value, y = el.year.value;
     if (!m || !mo || !y) {
@@ -212,7 +236,8 @@
         + '<a class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border border-border bg-primary px-8 text-sm font-medium text-primary-foreground" href="' + p.href + '">View the filter</a>'
         + '<a class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border border-border bg-background px-8 text-sm font-medium text-foreground" href="' + p.amazon + '">Order from Amazon</a>'
         + '<a class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border border-border bg-background px-8 text-sm font-medium text-foreground" href="../support/">Ask us to confirm</a>'
-        + '</div>';
+        + '</div>'
+        + videoBlock(p);
     } else {
       el.out.innerHTML =
         '<div class="flex flex-wrap items-center gap-2"><span class="rounded-md border border-border px-2.5 py-0.5 text-xs font-semibold text-muted-foreground">No confirmed fit</span></div>'
